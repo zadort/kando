@@ -31,6 +31,8 @@ class Program
         }
 
         Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine();
+        Console.ForegroundColor = ConsoleColor.Black;
         Console.WriteLine("Az első 10 helyezett:");
         for (int i = 0; i < 10 && i < slagerek.Count; i++)
         {
@@ -40,7 +42,7 @@ class Program
         Console.WriteLine();
         Console.WriteLine("Az adatok elmentve a slagarek.txt állományba.");
 
-        string fileName = "slagerek.txt";
+        string fileName = "top10_Slagerek.txt";
         using (StreamWriter writer = new StreamWriter(fileName))
         {
             foreach (string[] song in slagerek)
@@ -48,5 +50,6 @@ class Program
                 writer.WriteLine($"{song[0]}\t{song[1]}");
             }
         }
+        Console.ForegroundColor = ConsoleColor.White;
     }
 }
