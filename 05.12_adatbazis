@@ -15,7 +15,7 @@ namespace _05._12
             MySqlDataReader adatok = sqlCmd.ExecuteReader();
             while (adatok.Read())
             {
-                Console.WriteLine(adatok[1]);
+                Console.WriteLine(adatok[0]);
             }
             kapcsolat.Close();
         }
