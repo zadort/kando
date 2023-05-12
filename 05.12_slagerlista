@@ -40,7 +40,8 @@ class Program
         }
 
         Console.WriteLine();
-        Console.WriteLine("Az adatok elmentve a slagarek.txt állományba.");
+        Console.WriteLine("Az adatok elmentve az Összesítés.txt állományba.");
+        Console.WriteLine(@"C:\Users\%USERNAME%\source\repos\slagerlista\slagerlista\bin\Debug\netcoreapp3.1\Összesítés.txt");
 
         string fileName = "top10_Slagerek.txt";
         using (StreamWriter writer = new StreamWriter(fileName))
