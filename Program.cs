@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using MySqlConnector;
 
 namespace _05._12
@@ -18,8 +18,6 @@ namespace _05._12
                 Console.WriteLine(adatok[1]);
             }
             kapcsolat.Close();
-            Console.ReadLine();
-
         }
     }
 }
