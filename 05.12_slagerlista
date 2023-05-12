@@ -6,27 +6,39 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.Title = "Slágerlista";
+        Console.WriteLine();
+        Console.BackgroundColor = ConsoleColor.White;
+        Console.Clear();
         List<string[]> slagerek = new List<string[]>();
         int maxSlagerek = 10;
 
         while (slagerek.Count < maxSlagerek)
         {
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine($"Add meg a(z) {slagerek.Count + 1}. zeneszámot!");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.Write("Előadó: ");
-            string artist = Console.ReadLine();
+            Console.ForegroundColor = ConsoleColor.Red;
+            string artist = Console.ReadLine();  
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.Write("Cím: ");
+            Console.ForegroundColor = ConsoleColor.Magenta;
+
             string title = Console.ReadLine();
             slagerek.Add(new string[] { artist, title });
         }
 
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.WriteLine("Az első 10 helyezett:");
         for (int i = 0; i < 10 && i < slagerek.Count; i++)
         {
             Console.WriteLine($"{i + 1}. helyezett: {slagerek[i][0]} - {slagerek[i][1]}");
         }
 
-        Console.WriteLine("Az adatok mentése fájlba vagy adatbázisba történik.");
-        // ide jöhet az adatok mentése fájlba vagy adatbázisba
+        Console.WriteLine();
+        Console.WriteLine("Az adatok elmentve a slagarek.txt állományba.");
 
         string fileName = "slagerek.txt";
         using (StreamWriter writer = new StreamWriter(fileName))
