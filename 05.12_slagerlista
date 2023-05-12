@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        List<string[]> slagerek = new List<string[]>();
+        int maxSlagerek = 10;
+
+        while (slagerek.Count < maxSlagerek)
+        {
+            Console.WriteLine($"Add meg a(z) {slagerek.Count + 1}. zeneszámot!");
+            Console.Write("Előadó: ");
+            string artist = Console.ReadLine();
+            Console.Write("Cím: ");
+            string title = Console.ReadLine();
+            slagerek.Add(new string[] { artist, title });
+        }
+
+        Console.WriteLine("Az első 10 helyezett:");
+        for (int i = 0; i < 10 && i < slagerek.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. helyezett: {slagerek[i][0]} - {slagerek[i][1]}");
+        }
+
+        Console.WriteLine("Az adatok mentése fájlba vagy adatbázisba történik.");
+        // ide jöhet az adatok mentése fájlba vagy adatbázisba
+
+        string fileName = "slagerek.txt";
+        using (StreamWriter writer = new StreamWriter(fileName))
+        {
+            foreach (string[] song in slagerek)
+            {
+                writer.WriteLine($"{song[0]}\t{song[1]}");
+            }
+        }
+    }
+}
