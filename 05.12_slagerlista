@@ -21,7 +21,7 @@ class Program
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.Write("Előadó: ");
             Console.ForegroundColor = ConsoleColor.Red;
-            string artist = Console.ReadLine();  
+            string artist = Console.ReadLine();
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.Write("Cím: ");
             Console.ForegroundColor = ConsoleColor.Magenta;
