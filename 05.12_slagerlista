@@ -20,7 +20,7 @@ class Program
             Console.WriteLine($"Add meg a(z) {slagerek.Count + 1}. zeneszámot!");
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.Write("Előadó: ");
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.DarksRed;
             string artist = Console.ReadLine();
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.Write("Cím: ");
