@@ -48,13 +48,14 @@ class Program
 
         #region Az adatok mentése fájlba
         string allomany = "Összesítés.txt";
-        using (StreamWriter writer = new StreamWriter(allomany))
-        {
+        int index = 0;
+        StreamWriter writer = new StreamWriter(allomany);
             foreach (string[] dal in slagerek)
             {
-                writer.WriteLine($"{dal[0]}\t{dal[1]}");
+                writer.WriteLine($"{index + 1}. helyezett: {dal[0]} - {dal[1]}");
+                index++;
             }
-        }
+            writer.Close();
         Console.ForegroundColor = ConsoleColor.White;
         #endregion
     }
