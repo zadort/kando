@@ -10,9 +10,10 @@ class Program
         Console.WriteLine();
         Console.BackgroundColor = ConsoleColor.White;
         Console.Clear();
-        List<string[]> slagerek = new List<string[]>();
+        List<string[]> slagerek = new List<string[]>(); // Ezzel a sorral létrehoztam egy üres listát, amelyben sláger adatokat tárolom.
         int maxSlagerek = 10;
 
+        #region Addig kéri be a felhasználótól a slágereket, amíg el nem éri a maximális számot
         while (slagerek.Count < maxSlagerek)
         {
             Console.WriteLine();
@@ -20,16 +21,18 @@ class Program
             Console.WriteLine($"Add meg a(z) {slagerek.Count + 1}. zeneszámot!");
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.Write("Előadó: ");
-            Console.ForegroundColor = ConsoleColor.DarksRed;
-            string artist = Console.ReadLine();
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            string eloado = Console.ReadLine();
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.Write("Cím: ");
             Console.ForegroundColor = ConsoleColor.Magenta;
 
-            string title = Console.ReadLine();
-            slagerek.Add(new string[] { artist, title });
+            string cim = Console.ReadLine();
+            slagerek.Add(new string[] { eloado, cim });
         }
+        #endregion
 
+        #region Az első 10 helyezett kiírása
         Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.WriteLine();
         Console.ForegroundColor = ConsoleColor.Black;
@@ -38,19 +41,21 @@ class Program
         {
             Console.WriteLine($"{i + 1}. helyezett: {slagerek[i][0]} - {slagerek[i][1]}");
         }
-
         Console.WriteLine();
         Console.WriteLine("Az adatok elmentve az Összesítés.txt állományba.");
         Console.WriteLine(@"C:\Users\%USERNAME%\source\repos\slagerlista\slagerlista\bin\Debug\netcoreapp3.1\Összesítés.txt");
+        #endregion
 
-        string fileName = "Összesítés.txt";
-        using (StreamWriter writer = new StreamWriter(fileName))
+        #region Az adatok mentése fájlba
+        string allomany = "Összesítés.txt";
+        using (StreamWriter writer = new StreamWriter(allomany))
         {
-            foreach (string[] song in slagerek)
+            foreach (string[] dal in slagerek)
             {
-                writer.WriteLine($"{song[0]}\t{song[1]}");
+                writer.WriteLine($"{dal[0]}\t{dal[1]}");
             }
         }
         Console.ForegroundColor = ConsoleColor.White;
+        #endregion
     }
 }
